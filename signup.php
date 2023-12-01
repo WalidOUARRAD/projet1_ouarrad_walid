@@ -1,4 +1,6 @@
-<?php
+<?php 
+include('connexion.php');
+include('header.php');
 
 $message = ''; 
 
@@ -90,7 +92,7 @@ $conn->close();
 
         <input type="submit" value="Sign Up">
     </form>
-    
+
     <p><?php echo $message; ?></p>
 
 </body>
