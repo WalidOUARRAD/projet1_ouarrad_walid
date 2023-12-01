@@ -1,3 +1,26 @@
+<?php
+
+$message = ''; 
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT); 
+    $role = $_POST['role']; 
+
+    
+    $sql = "INSERT INTO user (user_name, email, pwd, role_id) VALUES ('$username', '$email', '$password', '$role')";
+
+    if ($conn->query($sql) === TRUE) {
+        $message = "Registration successful!";
+    } else {
+        $message = "Error: " . $sql . "<br>" . $conn->error;
+    }
+}
+
+$conn->close();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -67,7 +90,8 @@
 
         <input type="submit" value="Sign Up">
     </form>
-
+    
+    <p><?php echo $message; ?></p>
 
 </body>
 </html>
