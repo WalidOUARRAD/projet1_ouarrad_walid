@@ -1,5 +1,6 @@
 <?php
 include('connexion.php');
+include('fonction.php');
 include('header.php');
 
 $message = ''; 
