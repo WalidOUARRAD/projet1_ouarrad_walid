@@ -1,3 +1,26 @@
+<?php
+include('connexion.php');
+include('header.php');
+
+$message = ''; 
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    
+    if (verifyUser($conn, $username, $password)) {
+        $message = "Login successful!";
+        
+    } else {
+        $message = "Invalid username or password.";
+    }
+}
+
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
