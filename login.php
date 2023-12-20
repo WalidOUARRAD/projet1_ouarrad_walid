@@ -1,3 +1,6 @@
+<?php
+require('header.php'); 
+?>
 <h2>Se connecter</h2>
 <a href="../">Accueil</a>
 <a href="signup.php">S'enregistrer</a>

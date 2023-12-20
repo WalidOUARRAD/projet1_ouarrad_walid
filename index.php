@@ -1,4 +1,5 @@
-<?php
+<?php 
+require('header.php');
 session_start();
 ?>
 
@@ -8,7 +9,42 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon projet</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #4CAF50; /* Couleur de fond de la page en vert */
+        }
+
+        header {
+            background-color: #d3d3d3; /* Couleur du header en gris moyen */
+            color: #333; /* Couleur du texte en gris foncé */
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #e0e0e0; /* Couleur de fond de la barre de navigation en gris */
+            padding: 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333; /* Couleur du texte en gris foncé */
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #c0c0c0; /* Couleur de fond au survol des liens en gris plus clair */
+        }
+    </style>
 </head>
+
 <body>
     <h1>welcome</h1>
 

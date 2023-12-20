@@ -1,3 +1,6 @@
+<?php
+require('header.php'); 
+?>
 <h2>S'enregistrer</h2>
 <a href="../">Accueil</a>
 
