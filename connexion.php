@@ -1,14 +1,14 @@
 <?php
+$server = 'localhost';
+$userName = "root";
+$pwd = "";
+$db = "ecom1_projet";
 
-$servername = "127.0.0.1";
-$username = "root";
-$password = "";
-$dbname = "ecom1_projet";
-
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+$conn = mysqli_connect($server, $userName, $pwd, $db);
+if ($conn) {
+   
+    global $conn;
+} else {
+    echo "Error : Not connected to the $db database";
 }
 ?>
