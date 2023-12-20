@@ -1,4 +1,9 @@
+<?php
+include('../admin/header.php');
+include('../admin/fonction.php');
 
+
+?>
 
 <!DOCTYPE html>
 <html lang="fr">
