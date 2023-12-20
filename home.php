@@ -1,4 +1,19 @@
+<?php
+include('../admin/header.php');
+include('fonction.php');
 
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES['imageFile'])) {
+    
+    $nomFichier = $_FILES['imageFile']['name'];
+    $destination = $imageDirectory . $nomFichier;
+
+    if (move_uploaded_file($cheminTemporaire, $destination)) {
+        echo 'Le fichier a été téléchargé avec succès.';
+    } else {
+        echo 'Erreur lors du téléchargement du fichier.';
+    }
+}
+?>
 
 <!DOCTYPE html>
 <html lang="fr">
