@@ -1,4 +1,32 @@
+<?php
+include('../admin/header.php');
+include('fonction.php');
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['action'])) {
+        $action = $_POST['action'];
+
+        switch ($action) {
+            case 'ajouter':
+                ajouterProduit($_POST);
+                break;
+
+            case 'modifier':
+                modifierProduit($_POST);
+                break;
+
+            case 'supprimer':
+                supprimerProduit($_POST['id']);
+                break;
+
+            default:
+                
+                break;
+        }
+    }
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="fr">
