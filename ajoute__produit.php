@@ -1,15 +1,16 @@
 <?php
-// ajoute_produit.php
+
 include('header.php');
-// Include the functions file
+
 include('fonction.php');
 
-// Check if the form is submitted
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Call the function to add a product
+    
     ajouterProduit($_POST);
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
