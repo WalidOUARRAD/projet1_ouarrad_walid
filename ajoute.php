@@ -1,5 +1,5 @@
 <?php
-include('../admin/header.php');
+include('header.php');
 include('fonction.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -15,8 +15,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 
+$images = obtenirImagesDeLaBaseDeDonnees();
 ?>
-
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -80,26 +80,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="container">
         <h2>Ajouter un produit</h2>
         <form method="post" action="gestion_produit.php" enctype="multipart/form-data">
-    <label for="newName">Nom:</label>
-    <input type="text" name="newName" required>
+            <label for="newName">Nom:</label>
+            <input type="text" name="newName" required>
 
-    <label for="newQuantite">Quantité:</label>
-    <input type="number" name="newQuantite" required>
+            <label for="newQuantite">Quantité:</label>
+            <input type="number" name="newQuantite" required>
 
-    <label for="newPrix">Prix:</label>
-    <input type="text" name="newPrix" required>
+            <label for="newPrix">Prix:</label>
+            <input type="text" name="newPrix" required>
 
-    <label for="newDescription">Description:</label>
-    <textarea name="newDescription" rows="4"></textarea>
+            <label for="newDescription">Description:</label>
+            <textarea name="newDescription" rows="4"></textarea>
 
-    
-    <label for="newImage">Nouvelle image:</label>
-    <input type="file" name="newImage" accept="image/*" required>
+           
+            <label for="newImage">Nouvelle image:</label>
+            <input type="file" name="newImage" accept="image/*" required>
 
-    <input type="hidden" name="action" value="ajouter">
-    <input type="submit" value="Ajouter le produit">
-</form>
-
+            <input type="hidden" name="action" value="ajouter">
+            <input type="submit" value="Ajouter le produit">
+        </form>
     </div>
 </body>
 
