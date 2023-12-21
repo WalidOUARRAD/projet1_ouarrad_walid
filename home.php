@@ -1,18 +1,6 @@
 <?php
-include('../admin/header.php');
+include('header.php');
 include('fonction.php');
-
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES['imageFile'])) {
-    
-    $nomFichier = $_FILES['imageFile']['name'];
-    $destination = $imageDirectory . $nomFichier;
-
-    if (move_uploaded_file($cheminTemporaire, $destination)) {
-        echo 'Le fichier a été téléchargé avec succès.';
-    } else {
-        echo 'Erreur lors du téléchargement du fichier.';
-    }
-}
 ?>
 
 <!DOCTYPE html>
@@ -23,26 +11,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES['imageFile'])) {
 </head>
 
 <body>
-    <button onclick="window.location.href='panier.php';">Mon Panier</button>
-
-    <div class="products-container">
-        <form method="post" action="" enctype="multipart/form-data">
-            <label for="imageFile">Image:</label>
-            <input type="file" name="imageFile"><br>
-            <input type="submit" value="Télécharger">
-        </form>
-
-        
+    <?php if (!empty($products)) : ?>
+        <?php foreach ($products as $product) : ?>
             <div class="product-item">
                 <div class="product-image">
-                    <img src="" alt="">
+                    <img src="<?php echo $product['Image']; ?>" alt="<?php echo $product['Nom']; ?>">
                 </div>
-                <h3></h3>
-                <p>Prix: </p>
-                <p>Description: </p>
-                <form method="post" action="panier.php?action=add&pid=">
+                <h3><?php echo $product['Nom']; ?></h3>
+                <p>Prix: <?php echo $product['Prix']; ?></p>
+                <p>Description: <?php echo $product['Description']; ?></p>
+                <form method="post" action="panier.php?action=add&pid=<?php echo $product['ID']; ?>">
                     <input type="text" class="product-quantity" name="quantity" value="1" size="2" />
-                    <input type="hidden" name="id_produit" value="">
+                    <input type="hidden" name="id_produit" value="<?php echo $product['ID']; ?>">
                     <label for="taille">Taille :</label>
                     <select name="taille" id="taille">
                         <option value="6">6</option>
@@ -55,10 +35,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES['imageFile'])) {
                     <input type="submit" value="Ajouter au panier" class="btnAddAction" />
                 </form>
             </div>
-        
-            <p>Aucun produit trouvé.</p>
-       
-    </div>
+        <?php endforeach; ?>
+    <?php else : ?>
+        <p>Aucun produit trouvé.</p>
+    <?php endif; ?>
 </body>
 
 </html>
