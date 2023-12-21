@@ -5,66 +5,70 @@
     <style>
         
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-image: url('https://img.freepik.com/free-vector/green-curve-abstract-background_53876-99569.jpg?t=st=1701994785~exp=1701995385~hmac=d92abb1a06a551175afe70d30979caf35053447e185b27463882cd62cf7b678f');
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #3498db; /* Bleu clair */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
 
-        .container {
-            width: 50%;
-            margin: 50px auto;
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-        }
+.container {
+    width: 50%;
+    margin: 50px auto;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
 
-        h2 {
-            text-align: center;
-            color: #333;
-        }
+h2 {
+    text-align: center;
+    color: #2c3e50; /* Bleu foncé */
+}
 
-        form {
-            display: flex;
-            flex-direction: column;
-            padding: 20px;
-        }
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
 
-        label {
-            margin-bottom: 8px;
-            color: #333;
-        }
+label {
+    margin-bottom: 8px;
+    color: #34495e; /* Bleu moyen */
+}
 
-        input[type="text"],
-        input[type="password"],
-        input[type="email"],
-        input[type="submit"] {
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 16px;
-        }
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="submit"] {
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #3498db; /* Bleu clair */
+    border-radius: 4px;
+    font-size: 16px;
+}
 
-        input[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+input[type="submit"] {
+    background-color: #2980b9; /* Bleu foncé */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
 
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
+input[type="submit"]:hover {
+    background-color: #21618c; /* Bleu foncé plus foncé */
+}
 
-        p {
-            text-align: center;
-            margin-top: 15px;
-            color: #333;
-        }
+p {
+    text-align: center;
+    margin-top: 15px;
+    color: #2c3e50; /* Bleu foncé */
+}
+
+
     </style>
 </head>
 <body>
