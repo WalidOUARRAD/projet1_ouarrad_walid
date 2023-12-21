@@ -11,17 +11,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $result = registerUser($user_name, $email, $password);
 
     if ($result['success']) {
-        // Successful registration
+       
         $_SESSION['user_name'] = $user_name;
-        header('Location: index.php'); // Redirect to the index or another page
+        header('Location: index.php'); 
         exit();
     } else {
-        // Failed registration
+        
         $_SESSION['signup_error'] = $result['message'];
-        header('Location: signup.php'); // Redirect back to signup page
+        header('Location: signup.php'); 
         exit();
     }
 } else {
-    header('Location: signup.php'); // Redirect back to signup page if accessed directly
+    header('Location: signup.php'); 
     exit();
 }

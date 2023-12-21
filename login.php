@@ -64,7 +64,7 @@ button:hover {
     background-color: #2980b9;
 }
 
-/* Responsive styles */
+
 @media screen and (max-width: 600px) {
     .container {
         width: 90%;
