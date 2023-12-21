@@ -82,11 +82,11 @@ function registerUser($user_name, $email, $password)
 {
     global $conn;
 
-    // Validate and sanitize input data (you may want to enhance this)
+    
     $user_name = mysqli_real_escape_string($conn, $user_name);
     $email = mysqli_real_escape_string($conn, $email);
 
-    // Check if username is unique
+    
     $existing_user = getUserByName($user_name);
     if ($existing_user) {
         return [
@@ -95,13 +95,13 @@ function registerUser($user_name, $email, $password)
         ];
     }
 
-    // You need to replace '1' with a valid role_id from your 'role' table
+    
     $role_id = 1;
 
-    // Hash the password
-    $hashed_password = hash('sha256', $password); // Use appropriate hashing algorithm
+    
+    $hashed_password = hash('sha256', $password); 
 
-    // Insert user into the database
+    
     $query = "INSERT INTO user (user_name, email, pwd, role_id) VALUES (?, ?, ?, ?)";
     if ($stmt = mysqli_prepare($conn, $query)) {
         mysqli_stmt_bind_param($stmt, "sssi", $user_name, $email, $hashed_password, $role_id);
@@ -128,7 +128,7 @@ function ajouterProduit($data) {
         $Date_ajout = date('Y-m-d');
 
         
-        $targetDir = "C:\Users\DELL\Downloads\image"; //a rectifier
+        $targetDir = "C:\Users\DELL\Downloads\image"; 
 
        
         $targetFile = $targetDir . basename($Image);
