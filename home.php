@@ -1,44 +1,55 @@
 <?php
 include('header.php');
-include('fonction.php');
+include('connexion.php'); // Include your database connection file
+
+// Get products from the database
+$products = mysqli_query($conn, "SELECT * FROM product ORDER BY id ASC");
+
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
-    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil</title>
+    <style>
+        /* Your CSS Styles */
+    </style>
 </head>
 
 <body>
-    <?php if (!empty($products)) : ?>
-        <?php foreach ($products as $product) : ?>
+
+    <?php
+    if (!empty($products)) {
+        while ($row = mysqli_fetch_array($products)) {
+    ?>
             <div class="product-item">
-                <div class="product-image">
-                    <img src="<?php echo $product['Image']; ?>" alt="<?php echo $product['Nom']; ?>">
-                </div>
-                <h3><?php echo $product['Nom']; ?></h3>
-                <p>Prix: <?php echo $product['Prix']; ?></p>
-                <p>Description: <?php echo $product['Description']; ?></p>
-                <form method="post" action="panier.php?action=add&pid=<?php echo $product['ID']; ?>">
-                    <input type="text" class="product-quantity" name="quantity" value="1" size="2" />
-                    <input type="hidden" name="id_produit" value="<?php echo $product['ID']; ?>">
-                    <label for="taille">Taille :</label>
-                    <select name="taille" id="taille">
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                    </select>
-                    <input type="submit" value="Ajouter au panier" class="btnAddAction" />
+                <form method="post" action="panier.php?action=add&id=<?php echo $row["id"]; ?>">
+                    <div class="product-image">
+                        <?php if (isset($row["img_url"])) : ?>
+                            <img src="<?php echo $row["img_url"]; ?>" alt="<?php echo $row["name"]; ?>">
+                        <?php endif; ?>
+                    </div>
+                    <div class="product-tile-footer">
+                        <div class="product-title"><?php echo $row["name"]; ?></div>
+                        <div class="product-price"><?php echo "$" . $row["price"]; ?></div>
+                        <div class="cart-action">
+                            <input type="hidden" name="product_id" value="<?php echo $row["id"]; ?>">
+                            <input type="text" class="product-quantity" name="quantity" value="1" size="2" />
+                            <input type="submit" value="Add to Cart" class="btnAddAction" />
+                        </div>
+                    </div>
                 </form>
             </div>
-        <?php endforeach; ?>
-    <?php else : ?>
-        <p>Aucun produit trouvé.</p>
-    <?php endif; ?>
+    <?php
+        }
+    } else {
+        echo "No Records.";
+    }
+    ?>
+
 </body>
 
 </html>

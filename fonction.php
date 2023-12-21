@@ -95,11 +95,11 @@ function ajouterProduit($data) {
         $targetFile = $targetDir . basename($Image);
 
         
-        if (move_uploaded_file($_FILES["newImage"]["tmp_name"], $targetFile)) {
+        
            
-            $sql = "INSERT INTO product(name, quantity, price, img_url, description) VALUES (?, ?, ?, ?, ?)";
+            $sql = "INSERT INTO product(name, quantity, price, description) VALUES (?, ?, ?, ?)";
             $stmt = mysqli_prepare($conn, $sql);
-            mysqli_stmt_bind_param($stmt, "sdsds", $Nom, $Quantite, $Prix, $Image, $Description);
+            mysqli_stmt_bind_param($stmt, "sdss", $Nom, $Quantite, $Prix, $Description);
 
             
             $resultat = mysqli_stmt_execute($stmt);
@@ -111,9 +111,6 @@ function ajouterProduit($data) {
             }
 
             mysqli_stmt_close($stmt);
-        } else {
-            echo 'Erreur lors du téléchargement du fichier.';
-        }
 
         mysqli_close($conn);
     } else {
