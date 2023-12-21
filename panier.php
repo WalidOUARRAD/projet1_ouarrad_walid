@@ -1,5 +1,5 @@
 <?php
-include('header.php');
+include('header2.php');
 $con = mysqli_connect("localhost", "root", "", "ecom1_projet");
 
 if (mysqli_connect_errno()) {
