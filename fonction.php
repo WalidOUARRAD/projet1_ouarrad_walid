@@ -166,4 +166,45 @@ function modifierProduit($data) {
         echo "Remplissez tous les champs s'il vous plaît!";
     }
 }
+
+function supprimerProduit($id) {
+    $conn = connexionDb();
+
+    if (!empty($id)) {
+        $sql = "DELETE FROM product WHERE id = ?";
+        $stmt = mysqli_prepare($conn, $sql);
+        mysqli_stmt_bind_param($stmt, "i", $id);
+        $result = mysqli_stmt_execute($stmt);
+
+        if ($result) {
+            echo "Suppression réussie";
+        } else {
+            echo "Une erreur est survenue lors de la suppression";
+        }
+
+        mysqli_stmt_close($stmt);
+        mysqli_close($conn);
+    } else {
+        echo "id du produit non spécifié";
+    }
+}
+function obtenirImagesDeLaBaseDeDonnees() {
+    $conn = connexionDb();
+
+    $sql = "SELECT img_url FROM product";
+    $result = $conn->query($sql);
+
+    $images = [];
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $images[] = $row;
+        }
+    }
+
+    $conn->close();
+    return $images;
+}
+
+
+
 ?>
