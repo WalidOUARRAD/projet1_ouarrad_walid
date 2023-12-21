@@ -1,8 +1,8 @@
 <?php
 include('header.php');
-include('connexion.php'); // Include your database connection file
+include('connexion.php'); 
 
-// Get products from the database
+
 $products = mysqli_query($conn, "SELECT * FROM product ORDER BY id ASC");
 
 ?>
