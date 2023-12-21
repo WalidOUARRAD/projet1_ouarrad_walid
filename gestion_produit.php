@@ -34,47 +34,49 @@ $products = obtenirProduitsDeLaBaseDeDonnees();
         
 
         .product-card {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            transition: box-shadow 0.3s ease-in-out;
-        }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #81c784; /* Vert de la nature */
+    border-radius: 5px;
+    background-color: #b3e0f2; /* Bleu ciel */
+    transition: box-shadow 0.3s ease-in-out;
+}
 
-        .product-card:hover {
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+.product-card:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-        .product-details {
-            flex-grow: 1;
-            margin-right: 10px;
-        }
+.product-details {
+    flex-grow: 1;
+    margin-right: 10px;
+}
 
-        .product-buttons {
-            display: none;
-        }
+.product-buttons {
+    display: none;
+}
 
-        .product-card:hover .product-buttons {
-            display: flex;
-        }
+.product-card:hover .product-buttons {
+    display: flex;
+}
 
-        .product-buttons button {
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 3px;
-            cursor: pointer;
-            margin-right: 5px;
-            transition: background-color 0.3s ease-in-out;
-        }
+.product-buttons button {
+    background-color: #4caf50; /* Vert émeraude */
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-right: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
 
-        .product-buttons button:hover {
-            background-color: #0056b3;
-        }
+.product-buttons button:hover {
+    background-color: #388e3c; /* Vert foncé */
+}
+
     </style>
 </head>
 

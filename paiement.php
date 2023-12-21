@@ -6,82 +6,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paiement</title>
     <style>
+        
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-image: linear-gradient(to bottom right, #fd5f00, #ffae00);
-            background-size: cover;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(to bottom right, #cfd8dc, #90a4ae); /* Couleurs inspirées de la nature */
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 
-        .container {
-            max-width: 400px;
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-        }
+.container {
+    max-width: 400px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
 
-        .payment-form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+.payment-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-        .payment-button {
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: #fff;
-            text-decoration: none;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-top: 20px;
-            transition: background-color 0.3s ease-in-out;
-        }
+.payment-button {
+    padding: 10px 20px;
+    background-color: #4caf50; /* Vert inspiré de la nature */
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease-in-out;
+}
 
-        .payment-button:hover {
-            background-color: #0056b3;
-        }
+.payment-button:hover {
+    background-color: #388e3c; /* Vert foncé inspiré de la nature */
+}
 
-        label {
-            margin-top: 10px;
-            font-size: 14px;
-            color: #333;
-        }
+label {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+}
 
-        input[type="text"] {
-            width: 100%;
-            padding: 8px;
-            margin-top: 5px;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-            font-size: 14px;
-        }
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 14px;
+}
 
-        input[type="text"]:focus {
-            outline: none;
-            border-color: #007bff;
-        }
+input[type="text"]:focus {
+    outline: none;
+    border-color: #4caf50; /* Vert inspiré de la nature */
+}
 
-        h2 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #333;
-        }
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
 
-        p {
-            margin-bottom: 15px;
-            font-size: 18px;
-            font-weight: bold;
-            color: #333;
-        }
+p {
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
     </style>
 </head>
 

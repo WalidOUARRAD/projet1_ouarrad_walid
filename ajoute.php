@@ -24,55 +24,100 @@ $images = obtenirImagesDeLaBaseDeDonnees();
 <head>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 20px;
-        }
+    font-family: 'Lato', sans-serif;
+    background-color: #e0f7fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #aed581;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
 
-        h2 {
-            margin-top: 30px;
-        }
+.product-item {
+    display: flex;
+    border-bottom: 1px solid #aed581;
+    padding: 20px;
+}
 
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
+.product-image img {
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 4px;
+    margin-right: 20px;
+    border: 1px solid #81c784;
+}
 
-        input[type="text"],
-        input[type="number"],
-        textarea,
-        select,
-        input[type="file"] {
-            width: calc(100% - 22px);
-            padding: 8px;
-            margin-bottom: 10px;
-            border-radius: 3px;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-        }
+.product-details {
+    flex-grow: 1;
+}
 
-        input[type="submit"] {
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 3px;
-            cursor: pointer;
-        }
+.tbl-cart {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
 
-        input[type="submit"]:hover {
-            background-color: #0056b3;
-        }
+.tbl-cart th, .tbl-cart td {
+    border: 1px solid #aed581;
+    padding: 15px;
+    text-align: left;
+}
+
+.tbl-cart th {
+    background-color: #4caf50;
+    color: #fff;
+}
+
+.payment-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #4caf50;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    margin-top: 30px;
+    transition: background-color 0.3s ease;
+}
+
+.payment-button:hover {
+    background-color: #388e3c;
+}
+
+.no-records {
+    text-align: center;
+    margin-top: 20px;
+    color: #777;
+    font-size: 18px;
+}
+
+.success-message {
+    background-color: #dcedc8;
+    color: #689f38;
+    border: 1px solid #c5e1a5;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.btnRemoveAction {
+    color: #e53935;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.btnRemoveAction:hover {
+    color: #c62828;
+}
+
     </style>
 </head>
 

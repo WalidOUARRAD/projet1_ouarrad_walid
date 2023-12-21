@@ -25,6 +25,100 @@ $products = mysqli_query($con, "SELECT * FROM product ORDER BY id ASC");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon Panier</title>
     <style>
+        body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #1a1a1a;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #333;
+    border: 1px solid #444;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.product-item {
+    display: flex;
+    border-bottom: 1px solid #555;
+    padding: 20px;
+}
+
+.product-image img {
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 4px;
+    margin-right: 20px;
+    border: 2px solid #777;
+}
+
+.product-details {
+    flex-grow: 1;
+}
+
+.tbl-cart {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.tbl-cart th, .tbl-cart td {
+    border: 1px solid #444;
+    padding: 15px;
+    text-align: left;
+}
+
+.tbl-cart th {
+    background-color: #2c2c2c;
+}
+
+.payment-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #e74c3c;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    margin-top: 30px;
+    transition: background-color 0.3s ease;
+}
+
+.payment-button:hover {
+    background-color: #c0392b;
+}
+
+.no-records {
+    text-align: center;
+    margin-top: 20px;
+    color: #888;
+    font-size: 18px;
+}
+
+.success-message {
+    background-color: #27ae60;
+    color: #fff;
+    border: 1px solid #2ecc71;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.btnRemoveAction {
+    color: #e74c3c;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.btnRemoveAction:hover {
+    color: #c0392b;
+}
+
         
     </style>
 </head>

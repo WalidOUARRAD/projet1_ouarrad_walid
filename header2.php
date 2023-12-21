@@ -1,8 +1,9 @@
 <style>
-  
+  /* Style de base pour la barre de navigation */
+/* Style de base pour la barre de navigation */
 .navbar {
     background-color: #3498db; /* Bleu attirant */
-    border-bottom: 2px solid #2980b9; 
+    border-bottom: 2px solid #2980b9; /* Bordure légèrement plus foncée */
     padding: 15px 0; /* Ajustement de la marge interne */
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
 }
@@ -78,7 +79,9 @@
       <li class="nav-item">
         <a class="nav-link" href="signup.php">signup</a>
       </li>
-      
+      <li class="nav-item">
+        <a class="nav-link disabled" href="panier.php">panier</a>
+      </li>
     </ul>
   </div>
 </nav>
