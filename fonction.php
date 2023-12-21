@@ -137,4 +137,33 @@ function obtenirProduitsDeLaBaseDeDonnees() {
     $conn->close();
     return $products;
 }
+
+function modifierProduit($data) {
+    $conn = connexionDb();
+
+    $id = $data['id'] ?? '';
+    $Nom = $data['newName'] ?? '';
+    $Quantite = $data['newQuantite'] ?? '';
+    $Prix = $data['newPrix'] ?? '';
+    $Description = $data['newDescription'] ?? '';
+
+    if (!empty($id) && !empty($Nom) && !empty($Quantite) && !empty($Prix)) {
+        $sql = "UPDATE product SET name=?, quantity=?, price=?, description=? WHERE id=?";
+
+        $stmt = mysqli_prepare($conn, $sql);
+        mysqli_stmt_bind_param($stmt, "sdsds", $Nom, $Quantite, $Prix, $Description, $id);
+        $resultat = mysqli_stmt_execute($stmt);
+
+        if ($resultat) {
+            echo "Modification réussie";
+        } else {
+            echo "Une erreur est survenue lors de la modification : " . mysqli_error($conn);
+        }
+
+        mysqli_stmt_close($stmt);
+        mysqli_close($conn);
+    } else {
+        echo "Remplissez tous les champs s'il vous plaît!";
+    }
+}
 ?>
