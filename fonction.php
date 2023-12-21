@@ -1,25 +1,64 @@
 <?php
 require_once('connexion.php');
 
-function loginUser($user_name, $password)
-{
-    global $conn;
+function loginUser($user_name, $password) {
+    $conn = connexionDb();
+    $sql = "SELECT pwd, role_id FROM user WHERE user_name=?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $user_name);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-    
-    $hashed_password = hash('sha256', $password); 
-    $query = "SELECT * FROM user WHERE user_name = ? AND pwd = ?";
-    
-    if ($stmt = mysqli_prepare($conn, $query)) {
-        mysqli_stmt_bind_param($stmt, "ss", $user_name, $hashed_password);
-        mysqli_stmt_execute($stmt);
-        $result = mysqli_stmt_get_result($stmt);
+    $response = array();
 
-        if ($row = mysqli_fetch_assoc($result)) {
-            return true; // Login successful
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+
+        if (isset($row['pwd'])) {
+            $stored_password = $row['pwd'];
+            $id_role = $row['role_id'];
+
+            if (password_verify($password, $stored_password) || $password === $stored_password) {
+                $response['success'] = true;
+                $response['message'] = "Connexion réussie";
+
+                
+                if ($id_role == 1) { 
+                    $response['redirect'] = "index1.php";
+                } elseif ($id_role == 2) { 
+                    $response['redirect'] = "home.php";
+                } else {
+                    $response['redirect'] = "index.php";
+                }
+            } else {
+                $response['success'] = false;
+                $response['message'] = "Mot de passe incorrect";
+            }
+        } else {
+            $response['success'] = false;
+            $response['message'] = "Clé 'pwd' non définie dans le tableau";
         }
+    } else {
+        $response['success'] = false;
+        $response['message'] = "Nom d'utilisateur incorrect";
     }
 
-    return false; // Login failed
+    $stmt->close();
+    $conn->close();
+
+    return $response;
+}
+
+
+$user_name = $_POST['user_name'];
+$password = $_POST['pwd'];
+
+$result = loginUser($user_name, $password);
+if ($result['success']) {
+    echo $result['message'];
+    header("Location: " . $result['redirect']);
+} else {
+    echo $result['message'];
 }
 
 function getUserByName($user_name)

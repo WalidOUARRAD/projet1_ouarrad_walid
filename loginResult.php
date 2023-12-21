@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 header('Location: index.php');
                 break;
             default:
-                // Redirection par défaut si le rôle n'est pas défini
+                
                 header('Location: index.php');
                 break;
         }

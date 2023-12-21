@@ -71,9 +71,20 @@ button:hover {
     }
 }
 </style>
+
+<?php
+require('header.php');
+?>
 <h2>Se connecter</h2>
 <a href="../">Accueil</a>
 <a href="signup.php">S'enregistrer</a>
+
+<?php
+if (isset($_SESSION['login_error'])) {
+    echo '<p style="color: red;">' . $_SESSION['login_error'] . '</p>';
+    unset($_SESSION['login_error']);
+}
+?>
 
 <form method="post" action="loginResult.php">
     <label for="user_name">Nom d'utilisateur</label>
