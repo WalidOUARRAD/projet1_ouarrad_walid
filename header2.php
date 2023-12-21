@@ -71,7 +71,7 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="index.php">index <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="home2.php">index <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="login.php">login</a>
@@ -81,6 +81,9 @@
       </li>
       <li class="nav-item">
         <a class="nav-link disabled" href="panier.php">panier</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="compte.php">compte</a>
       </li>
     </ul>
   </div>

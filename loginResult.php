@@ -1,24 +1,40 @@
 <?php
 session_start();
-require_once('connexion.php');
 require_once('fonction.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user_name = $_POST['user_name'];
     $password = $_POST['pwd'];
 
-    if (loginUser($user_name, $password)) {
-        // Successful login
+    $loginResult = loginUser($user_name, $password);
+
+    if ($loginResult['success']) {
         $_SESSION['user_name'] = $user_name;
-        header('Location: index.php'); // Redirect to the index or another page
+        
+        $role = $loginResult['role'];
+        switch ($role) {
+            case 'superadmin':
+                header('Location: index1.php');
+                break;
+            case 'admin':
+                header('Location: home.php');
+                break;
+            case 'user':
+                header('Location: index.php');
+                break;
+            default:
+                // Redirection par défaut si le rôle n'est pas défini
+                header('Location: index.php');
+                break;
+        }
+
         exit();
     } else {
-        // Failed login
         $_SESSION['login_error'] = 'Invalid username or password';
-        header('Location: login.php'); // Redirect back to login page
+        header('Location: login.php'); 
         exit();
     }
 } else {
-    header('Location: login.php'); // Redirect back to login page if accessed directly
+    header('Location: login.php'); 
     exit();
 }
